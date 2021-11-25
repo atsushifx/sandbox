@@ -1,0 +1,10 @@
+##
+##  ignore files using  git
+##    for windows dotfiles
+##
+
+## global ignore
+*~
+$*
+.DS_Store
+thums.db
