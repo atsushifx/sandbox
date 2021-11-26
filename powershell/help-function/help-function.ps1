@@ -26,8 +26,6 @@ Param(
 # get script full path
 # get current directory
 $Script = $MyInvocation.MyCommand.path
-$ScriptDir = split-path -parent $Script
-
 
 ## function block
 
@@ -39,10 +37,10 @@ function  help()
   if ( !$shortHelp ) {
     get-help $Script
   } else {
-    get-help $script | select-string 'SYN' -context 0,1 | % { $_.context }
+     $helptext = (Get-Help $Script)
+     echo $helptext.SYNTAX
   }
 }
-
 
 ## main
 # check help
