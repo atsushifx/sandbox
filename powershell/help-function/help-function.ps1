@@ -5,6 +5,7 @@
 # @version 0.0.1
 # @date 2021-11-26
 #
+
 <#
   .SYNOPSIS
     test -help option script
@@ -29,15 +30,16 @@ $ScriptDir = split-path -parent $Script
 
 
 ## function block
+
 function  help()
 {
   Param (
     [switch]$shortHelp
   )
   if ( !$shortHelp ) {
-    echo "help"
+    get-help $Script
   } else {
-    echo "short help"
+    get-help $script | select-string 'SYN' -context 0,1 | % { $_.context }
   }
 }
 
@@ -48,5 +50,4 @@ if ($h -or ('-?' -in $args)) { help -shortHelp; exit ; }
 if ($help){ help; exit; }
 
 echo "Args:" $args
-
 
