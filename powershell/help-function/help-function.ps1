@@ -4,7 +4,7 @@
 # @author atsushifx <atsushifx@aglabo.com>
 # @version 0.0.1
 # @date 2021-11-26
-
+#
 <#
   .SYNOPSIS
     test -help option script
@@ -18,7 +18,8 @@
 
 #>
 Param(
-	[switch]$help
+  [switch]$h,
+  [switch]$help
 )
 
 # get script full path
@@ -28,7 +29,24 @@ $ScriptDir = split-path -parent $Script
 
 
 ## function block
+function  help()
+{
+  Param (
+    [switch]$shortHelp
+  )
+  if ( !$shortHelp ) {
+    echo "help"
+  } else {
+    echo "short help"
+  }
+}
+
 
 ## main
-if  ($help) { get-help $Script; exit; }
+# check help
+if ($h -or ('-?' -in $args)) { help -shortHelp; exit ; }
+if ($help){ help; exit; }
+
+echo "Args:" $args
+
 
