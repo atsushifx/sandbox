@@ -1,24 +1,34 @@
-###
-#  display help only script
+##
+# help test
 #
-# @author Atsushi Furukawa <atsushifx@aglabo.com>
-# @date 2021/11/26
-# @version 1.0.0
-#
+# @author atsushifx <atsushifx@aglabo.com>
+# @version 0.0.1
+# @date 2021-11-26
 
 <#
-  .SYNOPSYS
-  test powershell script with parameter. only help option defined
+  .SYNOPSIS
+    test -help option script
 
   .DESCRIPTION
+    only check [-help] option, and display this help.
 
   .EXAMPLE
-  help-test
-  do nothing
-
-  .EXAMPLE
-  help-test [-help|-?|-h]
-  display this help.
+   PS> .help-test -help
+    display this help
 
 #>
+Param(
+	[switch]$help
+)
+
+# get script full path
+# get current directory
+$Script = $MyInvocation.MyCommand.path
+$ScriptDir = split-path -parent $Script
+
+
+## function block
+
+## main
+if  ($help) { get-help $Script; exit; }
 
