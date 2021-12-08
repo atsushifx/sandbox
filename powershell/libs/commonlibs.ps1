@@ -12,17 +12,23 @@
 THIS CODE IS MADE AVAILABLE AS IS, WITHOUT WARRANTY OF ANY KIND. THE ENTIRE RISK OF THE USE OR THE RESULTS FROM THE USE OF THIS CODE REMAINS WITH THE USER.
 
 #>
+set-StrictMode -Version Latest
 
-<#
-  for user role. subset from WindowsBuiltinRole
 
-#>
-enum myUserRole {
-  Administrator = [Security.Principal.WindowsBuiltInRole]::Administrator
-  PowerUser     = [Security.Principal.WindowsBuiltInRole]::PowerUser
-  User          = [Security.Principal.WindowsBuiltInRole]::User
-  Guest         = [Security.Principal.WindowsBuiltInRole]::Guest
+class myUserRole {
+  static hidden [myUserRole] $_instance = [myUserRole]::new()
+  static [myUserRole] $role = [myUserRole]::getInstance()
+
+  # constructor
+  hidden myUserRole()
+  {
+  }
+
+  # instance
+  static hidden [myUserRole] getInstance()
+  {
+    return [myUserRole]::_instance
+  }
 }
 
-$t = [myUserRole]::poweruser
-$t
+[myUserRole]::role
