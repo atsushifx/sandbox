@@ -1,11 +1,11 @@
 
 
 # base class
-class aglabo {
-
+class aglabo
+{
+	static [string] $version = "1.0.0"
 }
 
-## Nested class
 <#
  # static function class for check user role
  #
@@ -13,41 +13,46 @@ class aglabo {
  #
  #
  #>
-class myUserRole : aglabo
+class userPrincipal : aglabo
 {
-  hidden static [Security.Principal.WindowsPrincipal]  $principal = [myUserRole]::getCurrentPrincipal()
+	hidden static [Security.Principal.WindowsPrincipal] $principal = $null;
 
-  # get current windows principal
-  hidden static [Security.Principal.WindowsPrincipal] getCurrentPrincipal()
-  {
-    $id = [Security.Principal.WindowsIdentity]::GetCurrent()
-    $pr = [Security.Principal.WindowsPrincipal] $id
-    return $pr
-  }
+	hidden static userPrincipal()
+	{
+		if ([userPrincipal]::principal -eq $null) {
+			[userPrincipal]::principal = getPrincipal
+		}
+	}
 
-  #
-  static [bool]  hasRole([Security.Principal.WindowsBuiltInRole] $role)
-  {
-    <#
+
+	# get current windows principal
+	hidden static [Security.Principal.WindowsPrincipal] getPrincipal()
+	{
+		$id = [Security.Principal.WindowsIdentity]::GetCurrent()
+		return ([Security.Principal.WindowsPrincipal] $id)
+	}
+
+	<#
       .SYNOPSIS
         check current user has role parameter
 
       .PARAMETER
         $role
         user role (Administrator, User, ...)
-    #>
-    return [myUserRole]::principal.IsInRole([Security.Principal.WindowsBuiltinRole] $role)
-  }
+	#>
+	static [bool] hasRole([Security.Principal.WindowsBuiltInRole] $role)
+	{
+		return [userPrincipal]::principal.IsInRole($role)
+	}
 
-  #
-  static [bool]  isAdmin()
-  {
-    <#
-      check user as 'Administrator'
+	<#
+	  .SYNOPSIS
+        check user as 'Administrator'\
     #>
-    return [myUserRole]::hasRole([Security.Principal.WindowsBuiltinRole]::Administrator)
-  }
+	static [bool]  isAdmin()
+	{
+		return [userPrincipal]::hasRole([Security.Principal.WindowsBuiltinRole]::Administrator)
+	}
 }
 
-echo [myUserRole]::isAdmin
 
