@@ -3,8 +3,28 @@
 ##    for windows dotfiles
 ##
 
-## global ignore
-*~
-$*
+### global ignore
+## OS centric used
 .DS_Store
 thums.db
+
+## backup files
+*~
+$*
+
+
+### visualstudiocode
+
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Local History for Visual Studio Code
+.history/
+
+# Built Visual Studio Code Extensions
+*.vsix
+
+
