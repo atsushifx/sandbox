@@ -5,17 +5,15 @@
 # top-most EditorConfig file
 # root = true
 
-### Powershell Script
-[*.ps1]
-
-# indent
-indent_size = 2
-indent_style = space
-
 
 ### VS Code
 [*workspace]
 tab_width = 4
 
 
+### textlint,etc
+
+[.*rc]
+indent_style = space
+tab_width = 2
 

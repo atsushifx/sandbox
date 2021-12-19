@@ -1,4 +1,3 @@
-##
 <#
   .SYNOPSIS
     help comment sample for function
@@ -18,11 +17,18 @@ Param(
 $Script = $MyInvocation.MyCommand.path
 
 ## function block
-
-function  help-sample()
+<#
+  .SYNOPSIS
+    set Value to Environment Variable (global and this session)
+ #>
+function  Set-GlobalEnvironment()
 {
-  
-
+   param (
+      [Parameter(Position=2, Mandatory)]
+      [ValidateSet('User', 'Machine')]
+      [string]
+        $Environ = 'User'
+   )
 }
 
-Get-Help Help-sample
+Get-Help Set-GlobalEnvironment

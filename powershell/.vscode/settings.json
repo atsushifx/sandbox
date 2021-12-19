@@ -1,4 +1,3 @@
 {
-    "editor.cursorStyle": "block",
-    "workbench.editor.enablePreview": false
+	"workbench.colorTheme": "Iceberg Light"
 }
