@@ -1,0 +1,27 @@
+###############################################################################
+# Set default behavior to automatically normalize line endings.
+###############################################################################
+*  text=unput
+
+
+## Audio
+*.mp3                binary
+*.ogg                binary
+*.wav                binary
+
+## Video
+*.mp4                binary
+*.mpeg               binary
+*.mpg                binary
+
+## Images
+*.bmp               binary
+*.gif               binary
+*.jpeg              binary
+*.jpg               binary
+*.png               binary
+*.tif               binary
+*.tiff              binary
+*.webp              binary
+*.ico				binary
+
