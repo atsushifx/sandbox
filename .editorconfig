@@ -3,8 +3,19 @@
 # default editorconfig set ~/ to symlink
 
 # top-most EditorConfig file
-# root = true
+root = true
 
+[*]
+end_of_line = lf
+insert_final_newline = true
+
+# default character-set
+charset = utf-8
+
+# indent style
+indent_size = tab
+indent_style = tab
+tab_width=4
 
 ### VS Code
 [*workspace]
@@ -13,7 +24,11 @@ tab_width = 4
 
 ### textlint,etc
 
-[.*rc]
+[*.rc]
 indent_style = space
 tab_width = 2
+
+[*.{json,yml]
+indent_style = tab
+tab_width = 4
 
