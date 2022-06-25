@@ -1,0 +1,12 @@
+# EditorConfig is awesome: https://EditorConfig.org
+#
+# ocaml lang : 
+# 
+
+##
+#
+[*.ml]
+indent_style = space
+indent_size = 2
+tab_width = 2
+
