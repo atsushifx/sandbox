@@ -1,13 +1,11 @@
 # EditorConfig is awesome: https://EditorConfig.org
 #
-# gauche lang : 
-# 
-
-### Gauchetextlint,etc
-
-# gauche lang
+# settings for lisp
 #
-[*.scm]
+
+# lisp lang
+#
+[*.{scm,lisp}]
 indent_style = tab
 tab_width = 2
 

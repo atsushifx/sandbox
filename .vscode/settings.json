@@ -1,7 +1,3 @@
 {
-	"code-runner.executorMapByFileExtension": {
-		".ml": "ocaml",
-		".scm": "gosh",
-		".lisp": "gosh"
-	}
+	"code-runner.clearPreviousOutput": false,
 }
