@@ -5,6 +5,7 @@
 # top-most EditorConfig file
 root = true
 
+# Unix-style newlines with a newline ending every file
 [*]
 end_of_line = lf
 insert_final_newline = true
@@ -17,18 +18,21 @@ indent_size = tab
 indent_style = tab
 tab_width=4
 
-### VS Code
-[*workspace]
-tab_width = 4
-
-
-### textlint,etc
-
-[*.rc]
-indent_style = space
+# ext type settings
+### setting files
+# json, yml
+[**.{json, yml}]
 tab_width = 2
-
-[*.{json,yml]
 indent_style = tab
-tab_width = 4
+
+# rc files
+[**rc]
+tab_width = 2
+indent_style = space
+
+### markdown
+[**.md]
+indent_size = tab
+tab_width = 2
+indent_style = space
 
